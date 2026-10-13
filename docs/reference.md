@@ -227,6 +227,7 @@ provider, and its models appear in every agent's picker:
 ```sh
 magpie presets                          # the vendors magpie knows, grouped: vendors, relays, local
 magpie provider add deepseek sk-…       # a preset needs only the key
+magpie provider add modelgo sk-…        # ModelGo: Chat, Responses and Anthropic
 magpie provider add ollama              # local servers need none
 magpie provider add "My Relay" url=https://relay.example.com/v1 key=sk-… models=gpt-5.5,claude-sonnet-5
 magpie providers                        # host, key, exposed models, who uses what
@@ -652,6 +653,12 @@ it: make `settings.json` writable and retry so older versions cannot keep
 accepting its old credential. Independent named keys remain manageable.
 Gateway credentials stay in `~/.config/magpie/caller-keys.json` (XDG-aware,
 mode `0600`), never in usage records or list responses.
+
+ModelGo is available as `modelgo`: one key for many vendors' models, with Chat
+Completions, Responses and Anthropic Messages at `api.modelgo.ai`. Its China
+site is a separate account with its own keys, at `api.modelgo.com`; pick it
+as the preset's Site, or give its URLs with `url=`. Both serve their model
+list at `/v1/models`, so the preset borrows no models.dev entry.
 
 Baidu Qianfan's [Token Plans](https://cloud.baidu.com/doc/qianfan/s/Dmrabu8b6)
 are available as `baidu-qianfan`: a personal (个人版) and an enterprise (企业版)

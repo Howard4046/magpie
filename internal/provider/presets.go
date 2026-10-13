@@ -489,6 +489,17 @@ var presets = []PresetDef{
 	{ID: "cherryin", Name: "CherryIN", Icon: "cherryin-color", Kind: KindRelay,
 		Chat: "https://open.cherryin.ai/v1", Responses: "https://open.cherryin.ai/v1", Anthropic: "https://open.cherryin.ai",
 		Website: "https://open.cherryin.ai", KeysURL: "https://open.cherryin.ai/console/token"},
+	// ModelGo: the international and China sites are separate accounts with
+	// separate keys, each serving Chat, Responses and Messages at its own
+	// host. The model list is asked of the gateway (/v1/models), not borrowed.
+	{ID: "modelgo", Name: "ModelGo", Icon: "modelgo-color", Kind: KindRelay,
+		Chat: "https://api.modelgo.ai/v1", Responses: "https://api.modelgo.ai/v1", Anthropic: "https://api.modelgo.ai",
+		Website: "https://modelgo.ai", KeysURL: "https://console.modelgo.ai",
+		RegionLabel: "Site", Regions: []Region{
+			{ID: "global", Name: "International", Chat: "https://api.modelgo.ai/v1", Responses: "https://api.modelgo.ai/v1", Anthropic: "https://api.modelgo.ai"},
+			{ID: "china", Name: "China", Chat: "https://api.modelgo.com/v1", Responses: "https://api.modelgo.com/v1", Anthropic: "https://api.modelgo.com",
+				Website: "https://modelgo.com", KeysURL: "https://console.modelgo.com"},
+		}},
 	{ID: "yylx", Name: "鱼鱼连线", Icon: "yylx", Kind: KindRelay,
 		Chat: "https://app.yylx.io/v1", Anthropic: "https://app.yylx.io",
 		Website: "https://yylx.io", KeysURL: "https://app.yylx.io/keys",
